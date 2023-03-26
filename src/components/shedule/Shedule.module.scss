@@ -1,0 +1,39 @@
+        .studyTime {
+            @apply mx-10;
+
+            .timeElement {
+                @apply mt-24 my-32 flex flex-col;
+
+                .startCouple {
+                    @apply text-3xl font-extrabold;
+                }
+
+                .endCouple {
+                    @apply text-xl;
+                }
+            }
+
+            .lastTimeElement {
+                @apply flex flex-col;
+
+                .startCouple {
+                    @apply text-3xl font-extrabold;
+                }
+
+                .endCouple {
+                    @apply text-xl;
+                }
+            }
+
+            .firstTimeElement {
+                @apply flex flex-col;
+
+                .startCouple {
+                    @apply text-3xl font-extrabold;
+                }
+
+                .endCouple {
+                    @apply text-xl;
+                }
+            }
+        }

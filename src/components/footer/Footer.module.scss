@@ -1,0 +1,23 @@
+.footer {
+    @apply my-12 flex flex-col text-center text-2xl text-slate-600;
+
+    .footerText {
+        // @apply ;
+    }
+
+    .contacts {
+
+        // @apply ;
+        .logoContainer {
+            @apply flex justify-center;
+
+            .log {
+                @apply w-16 mx-3 my-3;
+            }
+        }
+    }
+
+    .links {
+        @apply text-sm mt-10 mb-6 text-black;
+    }
+}

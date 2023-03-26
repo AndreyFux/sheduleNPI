@@ -1,0 +1,14 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.main {
+    .settings {
+            @apply flex align-middle justify-around mt-4;
+        }
+        .content {
+            @apply flex justify-center mt-10 pb-28 border-b-2 border-stone-300;
+        }
+}
+
+

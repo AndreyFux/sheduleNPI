@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.header {
+    @apply flex text-3xl py-10 justify-between border-b-2 border-stone-300 font-extralight;
+
+    .logo {
+        @apply text-blue-600 text-4xl;
+    }
+
+    .date {
+        // @apply;
+    }
+}

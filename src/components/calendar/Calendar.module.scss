@@ -1,0 +1,30 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.data {
+    @apply flex justify-between text-3xl;
+
+    .dataElement {
+        @apply flex flex-col m-4;
+
+        .dataContainer {
+            @apply flex justify-center;
+
+            .day {
+                @apply text-slate-500;
+
+            }
+        }
+
+
+    }
+
+    .active {
+        @apply flex flex-col m-4 text-blue-600 border-b-2 border-blue-600 text-4xl mt-1;
+
+        .dataContainer {
+            @apply flex justify-center;
+        }
+    }
+}
