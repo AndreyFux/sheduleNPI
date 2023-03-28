@@ -1,11 +1,10 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
 * {
     background-color: #f7f7fc;
     margin: 0px;
-    font-family: "Roboto", sans-serif;
+    font-weight: 600;
 }
 
 .container {

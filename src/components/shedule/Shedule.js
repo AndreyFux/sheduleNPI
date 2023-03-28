@@ -1,4 +1,5 @@
 import styles from "./Shedule.module.scss";
+import { data } from "../../data.js";
 
 function Shedule() {
     return (
@@ -23,7 +24,32 @@ function Shedule() {
             </div>
 
             <ol className="w-4/12 flex flex-col  relative border-l border-blue-600 dark:border-gray-700">
-                <li>
+                {data.map((replite) => {
+                    return !Object.keys(replite).length ? (
+                        <li key={Math.random()}>
+                            <div className="mx-6 px-6 pb-6 m-10 bg-white rounded-3xl shadow-xl inline-block">
+                                <div className="absolute w-5 h-5 bg-blue-600 rounded-full mt-3 -left-3 border border-white dark:border-gray-900 dark:bg-gray-700 "></div>
+
+                                <h3 className="text-4xl font-semibold text-gray-900 dark:text-white pt-6 bg-white">
+                                    Пары нет
+                                </h3>
+                            </div>
+                        </li>
+                    ) : (
+                        <li key={Math.random()}>
+                            <div className="mx-6 px-6 mt-0 mb-2 pb-4 bg-white rounded-3xl shadow-xl inline-block">
+                                <div className="absolute w-5 h-5 bg-blue-600 rounded-full mt-3 -left-3 border border-white dark:border-gray-900 dark:bg-gray-700"></div>
+                                <h3 className="text-3xl font-semibold text-gray-900 dark:text-white pt-8 bg-white">
+                                    {replite.title}
+                                </h3>
+                                <p className="mb-4 text-xl font-normal text-gray-500 dark:text-gray-400 bg-white">
+                                    {replite.teacher + replite.classRoom + replite.type}
+                                </p>
+                            </div>
+                        </li>
+                    );
+                })}
+                {/* <li>
                     <div className="mx-6 px-6 mt-0 mb-2 pb-4 bg-white rounded-3xl shadow-xl inline-block">
                         <div className="absolute w-5 h-5 bg-blue-600 rounded-full mt-3 -left-3 border border-white dark:border-gray-900 dark:bg-gray-700"></div>
                         <h3 className="text-3xl font-semibold text-gray-900 dark:text-white pt-8 bg-white">
@@ -66,7 +92,7 @@ function Shedule() {
                             Пары нет
                         </h3>
                     </div>
-                </li>
+                </li> */}
             </ol>
         </>
     );
