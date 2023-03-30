@@ -7,6 +7,7 @@ function Dropdown(props) {
     function classNames(...classes) {
         return classes.filter(Boolean).join(" ");
     }
+
     return (
         <Menu as="div" className="relative inline-block text-left m-5 w-56">
             <div>
@@ -38,10 +39,10 @@ function Dropdown(props) {
                                         active
                                             ? "bg-gray-100 text-gray-900"
                                             : "text-gray-700",
-                                        "block px-4 py-2 text-sm"
+                                        "block px-4 py-2 text-lg text-center "
                                     )}
                                 >
-                                    Account settings
+                                    первый Курс
                                 </a>
                             )}
                         </Menu.Item>
@@ -53,10 +54,10 @@ function Dropdown(props) {
                                         active
                                             ? "bg-gray-100 text-gray-900"
                                             : "text-gray-700",
-                                        "block px-4 py-2 text-sm"
+                                        "block px-4 py-2 text-lg text-center"
                                     )}
                                 >
-                                    Support
+                                    второй Курс
                                 </a>
                             )}
                         </Menu.Item>
@@ -68,10 +69,10 @@ function Dropdown(props) {
                                         active
                                             ? "bg-gray-100 text-gray-900"
                                             : "text-gray-700",
-                                        "block px-4 py-2 text-sm"
+                                        "block px-4 py-2 text-lg text-center"
                                     )}
                                 >
-                                    License
+                                    третий Курс
                                 </a>
                             )}
                         </Menu.Item>
@@ -84,10 +85,10 @@ function Dropdown(props) {
                                             active
                                                 ? "bg-gray-100 text-gray-900"
                                                 : "text-gray-700",
-                                            "block w-full px-4 py-2 text-left text-sm"
+                                            "block w-full px-4 py-2 text-left text-lg text-center"
                                         )}
                                     >
-                                        Sign out
+                                        четвертый Курс
                                     </button>
                                 )}
                             </Menu.Item>

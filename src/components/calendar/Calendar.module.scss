@@ -3,16 +3,16 @@
 @tailwind utilities;
 
 .data {
-    @apply flex justify-between text-3xl;
+    @apply flex justify-between text-3xl h-28;
 
     .dataElement {
-        @apply flex flex-col m-4;
+        @apply flex flex-col m-4 box-border hover:border-b-4 border-slate-500 box-border cursor-pointer;
 
         .dataContainer {
-            @apply flex justify-center;
+            @apply flex justify-center font-extralight;
 
             .day {
-                @apply text-slate-500;
+                @apply text-slate-500 font-extralight;
 
             }
         }
@@ -21,10 +21,29 @@
     }
 
     .active {
-        @apply flex flex-col m-4 text-blue-600 border-b-2 border-blue-600 text-4xl mt-1;
+        @apply flex flex-col m-4 text-blue-600 border-b-4 border-blue-600 text-4xl mt-1 cursor-pointer;
 
         .dataContainer {
             @apply flex justify-center;
+            .day{
+                @apply text-blue-600;
+            }
         }
     }
+
+
+        .vacation {
+            @apply flex flex-col m-4 box-border text-3xl cursor-default font-extralight;
+
+            .dataContainer {
+                @apply flex justify-center text-slate-500 font-extralight;
+
+                .day {
+                    @apply text-slate-500 font-extralight;
+
+                }
+            }
+
+
+        }
 }

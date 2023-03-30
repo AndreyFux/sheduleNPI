@@ -1,6 +1,54 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@import url("https://fonts.googleapis.com/css?family=Poppins&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@200;300;500;600;700;900&display=swap");
+
+body {
+    font-family: "Poppins";
+    margin: 0;
+    padding: 0;
+}
+h1 {
+    font-family: "Noto Serif KR", serif;
+    background-color: transparent;
+    font-size: 65px;
+}
+
+.main {
+    max-width: 1600px;
+    margin: 0 auto;
+    margin-top: 50px;
+    padding: 0 20px;
+}
+
+#first_name {
+    background: rgba(157, 157, 182, 0.4);
+    width: 80%;
+    height: 50px;
+}
+
+#first_name::placeholder {
+    font-weight: bold;
+    font-size: 20px;
+    opacity: 1;
+    color: rgb(255, 255, 255);
+}
+
+.header__content {
+    z-index: 20;
+    background-color: transparent;
+    color: white;
+    width: 85%;
+    margin: auto;
+}
+
+.fixclass {
+    background-color: transparent;
+    color: white !important;
+}
+
 * {
     background-color: #f7f7fc;
     margin: 0px;
@@ -10,4 +58,5 @@
 .container {
     max-width: 85%;
     margin: auto;
+    font-family: "Roboto", sans-serif;
 }
