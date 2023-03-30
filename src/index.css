@@ -60,3 +60,7 @@ h1 {
     margin: auto;
     font-family: "Roboto", sans-serif;
 }
+
+.lesson {
+    min-height: 170px;
+}

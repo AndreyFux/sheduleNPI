@@ -1,99 +1,64 @@
 import styles from "./Calendar.module.scss";
 import { useState, useEffect } from "react";
-function Calendar() {
+function Calendar(props) {
     const days = ["Пн", "Вт", "Ср", "Чт", "Пт", "Сб"];
     let data = 21;
-    const [active, setActive] = useState("Вт");
+
+    const date = new Date();
+    const weekDay = date.getDay();
+    const monthDay = date.getDate();
+    const month = date.getMonth();
+
+    const getWeek = () => {
+        const countDayOnMonth = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+        const week = ["Пн", "Вт", "Ср", "Чт", "Пт", "Сб", "Вс"];
+        let result = [];
+        let countMonthDay;
+        if (weekDay > 1) {
+            countMonthDay = monthDay - (weekDay - 1);
+        } else if (weekDay === 0) {
+            countMonthDay = monthDay - 6;
+        } else {
+            countMonthDay = monthDay;
+        }
+        for (let i = 0; i < week.length; i++) {
+            if (countMonthDay + i > countDayOnMonth[month]) {
+                let count = countDayOnMonth[month] - (countMonthDay + (week.length - 1));
+                result.push({ weekday: `${week[i]}`, moonthday: `${count + i}` });
+            } else {
+                result.push({ weekday: `${week[i]}`, moonthday: `${countMonthDay + i}` });
+            }
+        }
+        return result;
+    };
+    const calendar = getWeek();
 
     return (
         <div className={styles.data}>
-            {days.map((item) => {
+            {calendar.map((item) => {
                 data = data + 1;
                 return (
                     <div
                         className={
-                            styles.dataElement +
-                            (active == item ? " " + styles.active : "")
+                            (item.weekday === "Вс"
+                                ? styles.vacation
+                                : styles.dataElement) +
+                            (props.activeDay == item.weekday ? " " + styles.active : " ")
                         }
-                        onClick={() => setActive(item)}
+                        onClick={() =>
+                            item.weekday != "Вс" && props.setActiveDay(item.weekday)
+                        }
                     >
                         <div className={styles.dataContainer}>
-                            <span className={styles.day}>{item}</span>
+                            <span className={styles.day}>{item.weekday}</span>
                         </div>
                         <div className={styles.dataContainer}>
-                            <span>{data}</span>
+                            <span>{item.moonthday}</span>
                         </div>
                     </div>
                 );
             })}
-            <div className={styles.vacation}>
-                <div className={styles.dataContainer}>
-                    <span className={styles.day}>Вс</span>
-                </div>
-                <div className={styles.dataContainer}>
-                    <span>{data + 1}</span>
-                </div>
-            </div>
         </div>
-
-        // <div className={styles.data}>
-        //     <div className={styles.dataElement}>
-        //         <div className={styles.dataContainer}>
-        //             <span className={styles.day}>Пн</span>
-        //         </div>
-        //         <div className={styles.dataContainer}>
-        //             <span>20</span>
-        //         </div>
-        //     </div>
-        //     <div className={styles.dataElement}>
-        //         <div className={styles.dataContainer}>
-        //             <span className={styles.day}>Вт</span>
-        //         </div>
-        //         <div className={styles.dataContainer}>
-        //             <span>21</span>
-        //         </div>
-        //     </div>
-        //     <div className={styles.dataElement}>
-        //         <div className={styles.dataContainer}>
-        //             <span className={styles.day}>Ср</span>
-        //         </div>
-        //         <div className={styles.dataContainer}>
-        //             <span>22</span>
-        //         </div>
-        //     </div>
-        //     <div className={styles.dataElement}>
-        //         <div className={styles.dataContainer}>
-        //             <span className={styles.day}>Чт</span>
-        //         </div>
-        //         <div className={styles.dataContainer}>
-        //             <span>23</span>
-        //         </div>
-        //     </div>
-        //     <div className={styles.dataElement}>
-        //         <div className={styles.dataContainer}>
-        //             <span className={styles.day}>Пт</span>
-        //         </div>
-        //         <div className={styles.dataContainer}>
-        //             <span>24</span>
-        //         </div>
-        //     </div>
-        //     <div className={styles.active}>
-        //         <div className={styles.dataContainer}>
-        //             <span className={styles.day}>Сб</span>
-        //         </div>
-        //         <div className={styles.dataContainer}>
-        //             <span>25</span>
-        //         </div>
-        //     </div>
-        //     <div className={styles.vacation}>
-        //         <div className={styles.dataContainer}>
-        //             <span className={styles.day}>Вс</span>
-        //         </div>
-        //         <div className={styles.dataContainer}>
-        //             <span>26</span>
-        //         </div>
-        //     </div>
-        // </div>
     );
 }
 

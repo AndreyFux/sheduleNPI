@@ -6,7 +6,7 @@ import Calendar from "../calendar/Calendar";
 import Dropdown from "../dropdown/Dropdown";
 import Shedule from "../shedule/Shedule";
 import Footer from "../footer/Footer";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import Video from "../video/Video";
 
 function App() {
@@ -14,8 +14,9 @@ function App() {
     const options = { weekday: "short", month: "short", day: "numeric" };
     let now = today.toLocaleString("ru-RU", options);
     const myRef = useRef(null);
-
     const flipPage = () => myRef.current.scrollIntoView({ behavior: "smooth" });
+
+    const [activeDay, setActiveDay] = useState("Пн");
     return (
         <>
             <Video flipPage={flipPage}></Video>
@@ -23,7 +24,10 @@ function App() {
                 <Header myRef={myRef}></Header>
                 <main className={styles.main}>
                     <article className={styles.settings}>
-                        <Calendar></Calendar>
+                        <Calendar
+                            setActiveDay={setActiveDay}
+                            activeDay={activeDay}
+                        ></Calendar>
                         <div>
                             <Dropdown name={"Курс"}></Dropdown>
                             <Dropdown name={"Факультет"}></Dropdown>
@@ -31,7 +35,7 @@ function App() {
                         </div>
                     </article>
                     <article className={styles.content}>
-                        <Shedule></Shedule>
+                        <Shedule activeDay={activeDay}></Shedule>
                     </article>
                 </main>
                 <Footer></Footer>

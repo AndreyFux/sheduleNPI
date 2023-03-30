@@ -15,11 +15,15 @@ function Footer() {
             <div className={styles.contacts}>
                 Контакты для обратной связи
                 <div className={styles.logoContainer}>
-                    <div>
+                    <a>
                         <img src={mail} className={styles.log} />
-                    </div>
-                    <img src={git} className={styles.log} />
-                    <img src={tg} className={styles.log} />
+                    </a>
+                    <a href="https://github.com/AndreyFux">
+                        <img src={git} className={styles.log} />
+                    </a>
+                    <a href="https://t.me/kiit_mav">
+                        <img src={tg} className={styles.log} />
+                    </a>
                 </div>
             </div>
         </footer>
