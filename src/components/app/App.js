@@ -8,6 +8,7 @@ import Shedule from "../shedule/Shedule";
 import Footer from "../footer/Footer";
 import { useRef, useState } from "react";
 import Video from "../video/Video";
+import videoStyles from "../video/Video.module.scss";
 
 function App() {
     let today = new Date();
@@ -16,7 +17,12 @@ function App() {
     const myRef = useRef(null);
     const flipPage = () => myRef.current.scrollIntoView({ behavior: "smooth" });
 
-    const [activeDay, setActiveDay] = useState("Пн");
+    const optionsWeekDay = { weekday: "short" };
+    let weekDay = today.toLocaleString("ru-RU", optionsWeekDay);
+
+    const [activeDay, setActiveDay] = useState(
+        weekDay.charAt(0).toUpperCase() + weekDay.slice(1)
+    );
     return (
         <>
             <Video flipPage={flipPage}></Video>
@@ -28,10 +34,22 @@ function App() {
                             setActiveDay={setActiveDay}
                             activeDay={activeDay}
                         ></Calendar>
-                        <div>
-                            <Dropdown name={"Курс"}></Dropdown>
-                            <Dropdown name={"Факультет"}></Dropdown>
-                            <Dropdown name={"Группа"}></Dropdown>
+                        <div className={styles.groupInformation}>
+                            <div className={styles.groupElement}>
+                                <span className={styles.groupText}>Первый курс</span>
+                            </div>
+                            <div className={styles.groupElement}>
+                                <span className={styles.groupText}>ФИТУ</span>
+                            </div>
+                            <div className={styles.input_contauner}>
+                                <input
+                                    type="text"
+                                    id="input"
+                                    className={styles.input}
+                                    placeholder="Группа"
+                                    required
+                                />
+                            </div>
                         </div>
                     </article>
                     <article className={styles.content}>

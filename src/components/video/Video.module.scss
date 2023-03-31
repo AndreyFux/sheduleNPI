@@ -28,3 +28,10 @@
         }
 }
 
+.input_contauner {
+    @apply mt-6 bg-transparent w-full flex items-center justify-center;
+
+    .input {
+        @apply border border-gray-300 focus:border-blue-600 text-white text-xl rounded-lg p-2.5 outline-none;
+    }
+}

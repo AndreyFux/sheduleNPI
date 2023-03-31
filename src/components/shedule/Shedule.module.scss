@@ -9,7 +9,7 @@
                 }
 
                 .endCouple {
-                    @apply text-xl;
+                    @apply text-xl font-extralight;
                 }
             }
 
@@ -21,7 +21,7 @@
                 }
 
                 .endCouple {
-                    @apply text-xl;
+                    @apply text-xl font-extralight;
                 }
             }
 
@@ -29,11 +29,11 @@
                 @apply flex flex-col;
 
                 .startCouple {
-                    @apply text-3xl font-extrabold;
+                    @apply text-3xl;
                 }
 
                 .endCouple {
-                    @apply text-xl;
+                    @apply text-xl font-extralight;
                 }
             }
         }

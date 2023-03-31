@@ -4,13 +4,10 @@ import { useState } from "react";
 
 function Shedule(props) {
     let a = [];
-    console.log("-----------------");
 
     for (let key in data) {
-        console.log(props.activeDay, key);
         if (props.activeDay == key) {
             a = [];
-            console.log("зашло");
             a.push(data[key]);
         }
     }
@@ -31,7 +28,7 @@ function Shedule(props) {
                 </div>
                 <div className={styles.lastTimeElement}>
                     <span className={styles.startCouple}>15:00</span>
-                    <span className={styles.endCouples}>16:30</span>
+                    <span className={styles.endCouple}>16:30</span>
                 </div>
             </div>
 

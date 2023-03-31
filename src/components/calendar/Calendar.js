@@ -1,8 +1,7 @@
 import styles from "./Calendar.module.scss";
 import { useState, useEffect } from "react";
 function Calendar(props) {
-    const days = ["Пн", "Вт", "Ср", "Чт", "Пт", "Сб"];
-    let data = 21;
+    const days = ["Пн", "Вт", "Ср", "Чт", "Пт", "Сб", "Вс"];
 
     const date = new Date();
     const weekDay = date.getDay();
@@ -24,7 +23,7 @@ function Calendar(props) {
         for (let i = 0; i < week.length; i++) {
             if (countMonthDay + i > countDayOnMonth[month]) {
                 let count = countDayOnMonth[month] - (countMonthDay + (week.length - 1));
-                result.push({ weekday: `${week[i]}`, moonthday: `${count + i}` });
+                result.push({ weekday: `${week[i]}`, moonthday: `${count + i - 2}` });
             } else {
                 result.push({ weekday: `${week[i]}`, moonthday: `${countMonthDay + i}` });
             }
@@ -36,7 +35,6 @@ function Calendar(props) {
     return (
         <div className={styles.data}>
             {calendar.map((item) => {
-                data = data + 1;
                 return (
                     <div
                         className={
