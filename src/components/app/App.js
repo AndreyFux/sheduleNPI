@@ -1,20 +1,37 @@
 import "../../index.css";
 
-import styles from "./App.module.scss";
-import Header from "../haeder/Header";
-import Calendar from "../calendar/Calendar";
-import Dropdown from "../dropdown/Dropdown";
-import Shedule from "../shedule/Shedule";
-import Footer from "../footer/Footer";
 import { useRef, useState } from "react";
+import "../../index.css";
+import Calendar from "../calendar/Calendar";
+import Footer from "../footer/Footer";
+import Header from "../haeder/Header";
+import Shedule from "../shedule/Shedule";
 import Video from "../video/Video";
-import videoStyles from "../video/Video.module.scss";
+import styles from "./App.module.scss";
+
+import React, { useEffect } from "react";
+import axios from '../../axios.js';
+import { groups } from '../../groups';
 
 function App() {
     let today = new Date();
     const options = { weekday: "short", month: "short", day: "numeric" };
     let now = today.toLocaleString("ru-RU", options);
+    const [inputGroup, setInputGroup] = useState('');
+    const [currentShedule, setCurrentShedule] = useState({});
     const myRef = useRef(null);
+
+    useEffect(() => {
+        const chosenGroup = Object.entries(groups).find((item) => item[0] == inputGroup)
+        console.log(`выбрал группу ${chosenGroup}`)
+        if (chosenGroup) {
+            axios.get(`/groups?faculty=${chosenGroup[1].faculty}&year=${chosenGroup[1].year}&group=${chosenGroup[1].group}`).then(res => {
+                setCurrentShedule(res.data)
+                console.log(`получил данные от ${chosenGroup[0]}`)
+            })
+        }
+    }, [inputGroup]);
+
     const flipPage = () => myRef.current.scrollIntoView({ behavior: "smooth" });
 
     const optionsWeekDay = { weekday: "short" };
@@ -23,9 +40,10 @@ function App() {
     const [activeDay, setActiveDay] = useState(
         weekDay.charAt(0).toUpperCase() + weekDay.slice(1)
     );
+
     return (
         <>
-            <Video flipPage={flipPage}></Video>
+            <Video flipPage={flipPage} inputGroup={inputGroup} setInputGroup={setInputGroup} groups={groups}></Video>
             <div className="container">
                 <Header myRef={myRef}></Header>
                 <main className={styles.main}>

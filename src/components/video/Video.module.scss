@@ -9,7 +9,7 @@
     }
 
     .video_bg__content{
-        @apply flex flex-col items-center z-20 bg-transparent text-white text-5xl;
+        @apply flex flex-col items-center z-20 bg-transparent text-white text-5xl ;
         .blue_block{
             @apply w-28 bg-blue-600 h-2.5 mt-6;
         }
@@ -27,11 +27,18 @@
         }
         }
 }
-
-.input_contauner {
-    @apply mt-6 bg-transparent w-full flex items-center justify-center;
-
-    .input {
-        @apply border border-gray-300 focus:border-blue-600 text-white text-xl rounded-lg p-2.5 outline-none;
+.dropList{
+    position: relative;
+    width: 80%;
+    background: rgba(157, 157, 182, 0.4);
+    border-radius: 10px;
+    li{
+        
+        border-radius: 10px;
+        background: rgba(157, 157, 182, 0.4);
+        color: #fff;
+        line-height: 1.5em;
+        font-size: 0.55em;
     }
 }
+
