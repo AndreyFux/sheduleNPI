@@ -20,6 +20,8 @@ function Calendar(props) {
         } else {
             countMonthDay = monthDay;
         }
+        // console.log(countMonthDay);
+        console.log(countDayOnMonth[month]);
         for (let i = 0; i < week.length; i++) {
             if (countMonthDay + i > countDayOnMonth[month]) {
                 let count = countDayOnMonth[month] - (countMonthDay + (week.length - 1));
@@ -28,6 +30,7 @@ function Calendar(props) {
                 result.push({ weekday: `${week[i]}`, moonthday: `${countMonthDay + i}` });
             }
         }
+        // console.log(result);
         return result;
     };
     const calendar = getWeek();

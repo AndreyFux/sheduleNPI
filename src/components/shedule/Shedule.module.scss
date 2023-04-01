@@ -2,7 +2,7 @@
             @apply mx-10;
 
             .timeElement {
-                @apply mt-24 my-32 flex flex-col;
+                @apply py-14 flex flex-col;
 
                 .startCouple {
                     @apply text-3xl font-extrabold;
@@ -42,3 +42,16 @@
             @apply w-4/12 flex flex-col relative border-l border-blue-600;
 
         }
+
+
+                .timeElement {
+                    @apply my-14 flex flex-col;
+
+                    .startCouple {
+                        @apply w-28 text-3xl font-extrabold;
+                    }
+
+                    .endCouple {
+                        @apply ml-3 text-xl font-extralight;
+                    }
+                }
