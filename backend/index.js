@@ -27,4 +27,3 @@ app.get('/groups', async (req, res) => {
         console.log(e)
     }
 })
-

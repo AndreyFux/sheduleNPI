@@ -83,7 +83,6 @@ export const createShedule = (myHtml) => {
                 if (!acc[dayOfWeek]) {
                     acc[dayOfWeek] = [];
                 }
-
                 if (item.title && item.week == 2) {
                     acc[dayOfWeek].push({
                         classRoom: item.classRoom || '',
@@ -109,4 +108,3 @@ export const createShedule = (myHtml) => {
         console.log(e)
     }
 }
-
