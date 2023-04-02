@@ -22,7 +22,6 @@ export const data = {
             title: "Программирование микропроцессоров",
             teacher: "Заиченко А Н ст. ФиФ",
         },
-        ,
         { classRoom: "", type: "КАФ", title: "Иностранный язык", teacher: "" },
         {
             classRoom: "237ГЛ",
@@ -96,4 +95,5 @@ export const data = {
         },
         {},
     ],
+    Вс: [{}, {}, {}, {}],
 };

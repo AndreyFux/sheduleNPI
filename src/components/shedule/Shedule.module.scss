@@ -48,10 +48,10 @@
                     @apply my-14 flex flex-col;
 
                     .startCouple {
-                        @apply w-28 text-3xl font-extrabold;
+                        @apply  text-3xl font-extrabold;
                     }
 
                     .endCouple {
-                        @apply ml-3 text-xl font-extralight;
+                        @apply ml-1 text-xl font-extralight;
                     }
                 }

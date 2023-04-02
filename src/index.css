@@ -142,3 +142,11 @@ button-30 {
 .nolesson-fix {
     margin-top: 35px !important;
 }
+
+.time-block {
+    width: 141px;
+}
+
+.lessonblock {
+    width: 540px;
+}

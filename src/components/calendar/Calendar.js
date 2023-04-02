@@ -21,7 +21,6 @@ function Calendar(props) {
             countMonthDay = monthDay;
         }
         // console.log(countMonthDay);
-        console.log(countDayOnMonth[month]);
         for (let i = 0; i < week.length; i++) {
             if (countMonthDay + i > countDayOnMonth[month]) {
                 let count = countDayOnMonth[month] - (countMonthDay + (week.length - 1));
