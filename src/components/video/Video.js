@@ -3,15 +3,22 @@ import stylesHeader from "../haeder/Header.module.scss";
 import styles from "./Video.module.scss";
 import { now } from '../../utils/today.js'
 import React, { useState } from "react";
-import { groups } from "../../groups";
-
-
-function Video({ inputGroup, setInputGroup, flipPage, groups }) {
+import Select from "react-select";
+import DropDownInput from '../DropDownInput'
+function Video({ searchValue, setSearchValue, flipPage, groups }) {
     const [isOpen, setIsOpen] = useState(false)
 
     const sorted = Object.entries(groups).filter((item) => {
-        return item[0].includes(inputGroup)
+        return item[0].toLowerCase().includes(searchValue.toLowerCase())
     })
+
+    const options = sorted.map((item) => {
+        return {
+            label: item[0],
+            value: item[0].toLowerCase()
+        }
+    })
+
 
     return (
         <div className={styles.video_bg}>
@@ -28,27 +35,7 @@ function Video({ inputGroup, setInputGroup, flipPage, groups }) {
                 <h1>Расписание занятий</h1>
                 <div className={styles.blue_block}></div>
                 <h1 className={styles.text_header}>Укажите необходимые данные</h1>
-                <div className={styles.input_contauner}>
-                    <input
-                        value={inputGroup}
-                        onChange={(e) => setInputGroup(e.target.value)}
-                        // onClick={() => setIsOpen(prev => !prev)}
-                        type="text"
-                        id="first_name"
-                        className={styles.input}
-                        placeholder="Группа"
-                        required
-                    />
-                </div>
-
-                <ul className={styles.dropList}>
-                    {
-                        // isOpen &&
-                        sorted.slice(0, 5).map((item) => (
-                            <li key={item.id} onClick={() => setInputGroup(item[0])}>{item[0]}</li>
-                        ))
-                    }
-                </ul>   
+                <DropDownInput placeHolder="Select..." options={options} isSearchable={true} searchValue={searchValue} setSearchValue={setSearchValue}></DropDownInput>
                 <button onClick={flipPage} className={styles.button}>
                     Найти
                 </button>
