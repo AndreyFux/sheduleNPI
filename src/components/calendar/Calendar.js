@@ -7,22 +7,35 @@ function Calendar(props) {
     const weekDay = date.getDay();
     const monthDay = date.getDate();
     const month = date.getMonth();
-
+    
     const getWeek = () => {
         const countDayOnMonth = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
         const week = ["Пн", "Вт", "Ср", "Чт", "Пт", "Сб", "Вс"];
         let result = [];
         let countMonthDay;
         if (weekDay > 1) {
-            countMonthDay = monthDay - (weekDay - 1);
+            if ((monthDay - (weekDay - 1)) > 0) {
+                countMonthDay = monthDay - (weekDay - 1);
+            }
+            else {
+                const lastMonthLastDate = new Date(date.getFullYear(), date.getMonth(), 0);
+                countMonthDay = lastMonthLastDate.getDate() - (weekDay - 2)
+            }
         } else if (weekDay === 0) {
-            countMonthDay = monthDay - 6;
+            if (countMonthDay + 6 > monthDay) {
+                countMonthDay = monthDay - 6;
+            }
+            else{
+                const lastMonthLastDate = new Date(date.getFullYear(), date.getMonth(), 0);
+                console.log(lastMonthLastDate);
+                countMonthDay = lastMonthLastDate.getDate() - 4;
+            }
         } else {
             countMonthDay = monthDay;
         }
         for (let i = 0; i < week.length; i++) {
-            if (countMonthDay + i > countDayOnMonth[month]) {
-                let count = countDayOnMonth[month] - (countMonthDay + (week.length - 1));
+            if (countMonthDay + i > countDayOnMonth[month - 1]) {
+                let count = countDayOnMonth[month - 1] - (countMonthDay + (week.length - 1));
                 result.push({ weekday: `${week[i]}`, moonthday: `${count + i - 2}` });
             } else {
                 result.push({ weekday: `${week[i]}`, moonthday: `${countMonthDay + i}` });
